@@ -1,30 +1,18 @@
-// src/routes/tasks.js
-import express from "express";
+import { Router } from "express";
 import {
-  getAllTasks,
-  getTaskById,
   createTask,
-  updateTask,
-  patchTask,
   deleteTask,
-  deleteAllTasks,
-} from "../controllers/tasks.controllers.js";
+  updateTask,
+} from "../controllers/tasks.controllers";
 
-const router = express.Router();
+const router = Router();
 
-// -----------------------------------------------------------
-// Collection routes  →  /api/tasks
-// -----------------------------------------------------------
-router.get("/", getAllTasks); // GET    all tasks (+ optional ?status= ?priority= filters)
-router.post("/add", createTask); // POST   create a new task
-router.delete("/delete", deleteAllTasks); // DELETE wipe all tasks
+router.post("/tasks", createTask);
 
-// -----------------------------------------------------------
-// Single-resource routes  →  /api/tasks/:id
-// -----------------------------------------------------------
-router.get("/:id", getTaskById); // GET    one task
-router.put("/:id", updateTask); // PUT    full replace
-router.patch("/:id", patchTask); // PATCH  partial update
-router.delete("/:id", deleteTask); // DELETE one task
+router.get("/tasks", getAllTask);
+
+router.delete("/tasks/:id", deleteTask);
+
+router.put("/tasks/:id", updateTask);
 
 export default router;
