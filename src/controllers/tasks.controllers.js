@@ -120,4 +120,4 @@ const deleteTask = async (req, res) => {
   }
 };
 
-export { createTask, updateTask, deleteTask };
+export { createTask, updateTask, deleteTask, getAllTasks };

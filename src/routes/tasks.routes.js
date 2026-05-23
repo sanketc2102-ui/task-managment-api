@@ -3,13 +3,14 @@ import {
   createTask,
   deleteTask,
   updateTask,
-} from "../controllers/tasks.controllers";
+  getAllTasks,
+} from "../controllers/tasks.controllers.js";
 
 const router = Router();
 
 router.post("/", createTask);
 
-router.get("/", getAllTask);
+router.get("/", getAllTasks);
 
 router.delete("/:id", deleteTask);
 
